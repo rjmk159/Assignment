@@ -4,10 +4,11 @@ import List from "../components/List";
 
 class ListContainer extends Component {
   render() {
+    let { list } = this.props;
     return (
       <ListContainerStyle>
-        {this.props.list && this.props.list.length
-          ? this.props.list.map((item, index) => {
+        {list && list.length
+          ? list.map((item, index) => {
               var isOpen = item.opening_hours && item.opening_hours.open_now;
               return (
                 <div key = {item.id}>
@@ -19,7 +20,7 @@ class ListContainer extends Component {
                 </div>
               );
             })
-          : ""}
+          : <div className="no-show">Nothing to show</div>}
       </ListContainerStyle>
     );
   }

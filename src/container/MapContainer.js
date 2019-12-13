@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { MapContainerStyle } from "../assets/styles/Map.style";
 import { strings } from '../utils/strings';
-import { connect } from "react-redux";
 
 const mapStyles = {
   map: {
@@ -96,7 +95,6 @@ class Map extends Component {
     this.loadMap();
     this.props.setLocations([]);
     let {currentLocation} = this.state;
-    console.log(this.props.selectedPlace)
     let request = {
       location: currentLocation,
       types: this.props.selectedPlace || ["ATM"],
@@ -136,7 +134,7 @@ const mapStateToProps = state => ({
   ...state
 });
 
-export default connect(mapStateToProps, { })(Map);
+export default Map;
 
 Map.defaultProps = {
   zoom: 14,

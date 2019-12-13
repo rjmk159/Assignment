@@ -1,9 +1,5 @@
 const LocalizedStrings = {
-  en: {
-    // English
-  },
   gn: {
-    //
     HeaderText: "BrowserStack",
     SearchPlaceHolder:"Place",
     NearMe:"Near me",

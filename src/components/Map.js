@@ -20,7 +20,7 @@ export class Map extends Component {
     });
   };
 
-  onClose = props => {
+  onClose = () => {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
