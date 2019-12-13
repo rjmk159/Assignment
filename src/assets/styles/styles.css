@@ -1,12 +1,12 @@
-body{
+body {
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
-*{
+* {
   box-sizing: border-box;
 }
-h4{
+h4 {
   margin: 5px 0;
 }
 .info--container h4 {

@@ -12,6 +12,8 @@ class App extends Component {
   };
   
   render() {
+    let {selectedPlace,list}  = this.state;
+    let {google} =  this.props;
     return (
         <AppContainer>
           <PlaceType
@@ -21,11 +23,11 @@ class App extends Component {
           />
           <Map
             centerAroundCurrentLocation
-            google={this.props.google}
-            selectedPlace={this.state.selectedPlace}
+            google={google}
+            selectedPlace={selectedPlace}
             setLocations={list => this.setState({ list })}
           />
-          <List list={this.state.list} />
+          <List list={list} />
         </AppContainer>
     );
   }

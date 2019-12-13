@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { MapContainerStyle } from "../assets/styles/Map.style";
-import { strings } from '../utils/strings';
+import { strings } from "../utils/strings";
 
 const mapStyles = {
   map: {
@@ -23,19 +23,18 @@ class Map extends Component {
   }
 
   componentDidMount() {
-  
-      if (navigator && navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(pos => {
-          const coords = pos.coords;
-          this.setState({
-            currentLocation: {
-              lat: coords.latitude,
-              lng: coords.longitude
-            }
-          });
+    if (navigator && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        const coords = pos.coords;
+        this.setState({
+          currentLocation: {
+            lat: coords.latitude,
+            lng: coords.longitude
+          }
         });
-      }
-    
+      });
+    }
+
     this.loadMap();
   }
   componentDidUpdate(prevProps, prevState) {
@@ -94,7 +93,7 @@ class Map extends Component {
   setNearByLocation = () => {
     this.loadMap();
     this.props.setLocations([]);
-    let {currentLocation} = this.state;
+    let { currentLocation } = this.state;
     let request = {
       location: currentLocation,
       types: this.props.selectedPlace || ["ATM"],
@@ -107,7 +106,6 @@ class Map extends Component {
     }
   };
   callback = (request, status) => {
-   
     this.props.setLocations(request);
   };
   render() {
@@ -115,20 +113,18 @@ class Map extends Component {
     return (
       <MapContainerStyle>
         <div style={style} ref="map">
-          <div className="map-loader">
-              Loading map...
-          </div>
-
+          <div className="map-loader">Loading map...</div>
         </div>
         {this.renderChildren()}
         <div className="search-container">
-          <button onClick={this.setNearByLocation}>{strings.SearchCtaText}</button>
+          <button onClick={this.setNearByLocation}>
+            {strings.SearchCtaText}
+          </button>
         </div>
       </MapContainerStyle>
     );
   }
 }
-
 
 const mapStateToProps = state => ({
   ...state

@@ -1,10 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { color } from "../../utils/color";
 
 export const MapContainerStyle = styled.div`
-  background: #ECECEC;
+  background: ${color.lighter};
   margin-left: 2px;
-  width:50%;
-  float:left;
+  width: 50%;
+  float: left;
   .search-container {
     position: fixed;
     z-index: 10;
@@ -18,15 +19,14 @@ export const MapContainerStyle = styled.div`
     align-items: center;
     justify-content: flex-start;
     padding-left: 13px;
-    button{
-    background: #4a96f3;
-    color: #fff;
-    width: 111px;
-    height: 33px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    cursor: pointer;
+    button {
+      background: ${color.primary};
+      color: ${color.lighter};
+      width: 111px;
+      height: 33px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      cursor: pointer;
     }
   }
 `;
-

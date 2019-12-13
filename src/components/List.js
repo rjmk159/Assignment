@@ -21,7 +21,7 @@ class List extends Component {
             {isOpen ? "Open" : "Closed"}
           </span>
           <span className={`nearest-list--type-icon`}>
-            <img src={details.icon} alt="icon"/>
+            <img src={details.icon} alt="icon" />
           </span>
         </div>
       </div>

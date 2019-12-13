@@ -33,17 +33,19 @@ export class Map extends Component {
     this.props.setLocations(list);
   };
   render() {
+    let { list, activeMarker, showingInfoWindow, selectedPlace } = this.state;
+    let { centerAroundCurrentLocation, google } = this.props;
     return (
       <MapContainer
-        centerAroundCurrentLocation={this.props.centerAroundCurrentLocation}
-        google={this.props.google}
+        centerAroundCurrentLocation={centerAroundCurrentLocation}
+        google={google}
         setLocations={list => {
           this.setLocation(list);
         }}
-        selectedPlace={this.props.selectedPlace}
+        selectedPlace={selectedPlace}
       >
-        {this.state.list && this.state.list.length > 0
-          ? this.state.list.map((item, index) => {
+        {list && list.length > 0
+          ? list.map((item, index) => {
               return (
                 <Marker
                   key={index}
@@ -59,14 +61,11 @@ export class Map extends Component {
             })
           : ""}
         <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
+          marker={activeMarker}
+          visible={showingInfoWindow}
           onClose={this.onClose}
         >
-          <InfoComponent
-            details={this.state.selectedPlace}
-            list={this.state.list}
-          />
+          <InfoComponent details={selectedPlace} list={list} />
         </InfoWindow>
       </MapContainer>
     );

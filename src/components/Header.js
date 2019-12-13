@@ -7,7 +7,7 @@ class Header extends Component {
   render() {
     return (
       <HeaderContainer>
-        <img src={logo} alt="logo"/>
+        <img src={logo} alt="logo" />
         {strings.HeaderText}
       </HeaderContainer>
     );
