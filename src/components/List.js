@@ -3,13 +3,13 @@ import noImage from "../assets/images/no_preview.jpg";
 
 class List extends Component {
   render() {
-    let { details, isOpen, _key } = this.props;
+    let { details, isOpen } = this.props;
     let image =
       details.photos && details.photos.length
         ? details.photos[0].getUrl()
         : noImage;
     return (
-      <div key={_key} className="nearest-list--container">
+      <div className="nearest-list--container">
         <div
           className="nearest-list--image"
           style={{ backgroundImage: `url(${image})` }}

@@ -13,7 +13,6 @@ class ListContainer extends Component {
               return (
                 <div key = {item.id}>
                   <List
-                    _key={Math.random() + new Date()}
                     isOpen={isOpen}
                     details={item}
                   />
